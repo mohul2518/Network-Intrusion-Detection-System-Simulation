@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Network IDS Security Dashboard</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="topbar">
+
+        <div>
+            <h1>Network IDS</h1>
+            <p>Security Operations Dashboard</p>
+        </div>
+
+        <div class="system-status">
+            <span class="status-dot"></span>
+            IDS ONLINE
+        </div>
+
+    </header>
+
+
+    <!-- Main dashboard -->
+    <main class="dashboard">
+
+        <!-- Statistic Cards -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <h3>Total Flows</h3>
+                <p id="totalFlows">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Normal Flows</h3>
+                <p id="normalFlows">0</p>
+            </div>
+
+            <div class="stat-card warning">
+                <h3>Suspicious Flows</h3>
+                <p id="suspiciousFlows">0</p>
+            </div>
+
+            <div class="stat-card danger">
+                <h3>Total Alerts</h3>
+                <p id="totalAlerts">0</p>
+            </div>
+
+            <div class="stat-card danger">
+                <h3>Open Alerts</h3>
+                <p id="openAlerts">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Average Risk</h3>
+                <p id="averageRisk">0</p>
+            </div>
+
+        </section>
+
+
+        <!-- Dashboard panels -->
+
+        <section class="dashboard-grid">
+
+            <!-- Severity -->
+            <div class="panel">
+
+                <h2>Alert Severity</h2>
+
+                <div id="severityChart"
+                     class="chart-list">
+
+                    Loading...
+
+                </div>
+
+            </div>
+
+
+            <!-- Alert Types -->
+            <div class="panel">
+
+                <h2>Alert Types</h2>
+
+                <div id="alertTypesChart"
+                     class="chart-list">
+
+                    Loading...
+
+                </div>
+
+            </div>
+
+
+            <!-- Protocols -->
+            <div class="panel">
+
+                <h2>Protocols</h2>
+
+                <div id="protocolChart"
+                     class="chart-list">
+
+                    Loading...
+
+                </div>
+
+            </div>
+
+
+            <!-- Risk Distribution -->
+            <div class="panel">
+
+                <h2>Risk Distribution</h2>
+
+                <div id="riskChart"
+                     class="chart-list">
+
+                    Loading...
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Top Sources -->
+
+        <section class="panel">
+
+            <h2>Top Alert Sources</h2>
+
+            <div id="topSources">
+
+                Loading...
+
+            </div>
+
+        </section>
+
+
+        <!-- Recent Security Alerts -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <h2>Recent Security Alerts</h2>
+
+                <button onclick="loadDashboard()">
+                    Refresh
+                </button>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Alert ID</th>
+                            <th>Time</th>
+                            <th>Source IP</th>
+                            <th>Destination IP</th>
+                            <th>Type</th>
+                            <th>Severity</th>
+                            <th>Risk</th>
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="alertsTable">
+
+                        <tr>
+                            <td colspan="8">
+                                Loading alerts...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ====================================================
+             CORRELATED ALERTS
+        ===================================================== -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <h2>Correlated Alerts</h2>
+
+                <button onclick="loadCorrelatedAlerts()">
+                    Refresh
+                </button>
+
+            </div>
+
+
+            <p id="correlationMessage">
+                Loading correlated alerts...
+            </p>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Correlation ID</th>
+                            <th>Source IP</th>
+                            <th>Alert Type</th>
+                            <th>Related Alerts</th>
+                            <th>Severity</th>
+                            <th>Maximum Risk</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="correlationsTableBody">
+
+                        <tr>
+
+                            <td colspan="6">
+                                Loading correlations...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- Last updated -->
+
+        <p id="lastUpdated"
+           class="last-updated">
+
+            Last updated: --
+
+        </p>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

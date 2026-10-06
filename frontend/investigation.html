@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alert Investigation</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div>
+        <h1>Alert Investigation</h1>
+        <p>Network IDS Security Investigation</p>
+    </div>
+
+    <div>
+        <a href="index.html" style="color: white;">
+            ← Back to Dashboard
+        </a>
+    </div>
+
+</header>
+
+
+<main class="dashboard">
+
+
+    <!-- ALERT DETAILS -->
+
+    <section class="panel">
+
+        <h2>Alert Details</h2>
+
+        <div id="alertDetails">
+            Loading alert...
+        </div>
+
+    </section>
+
+
+
+    <!-- STATUS -->
+
+    <section class="panel">
+
+        <h2>Investigation Status</h2>
+
+        <div class="investigation-controls">
+
+            <label for="status">
+                Alert Status
+            </label>
+
+            <select id="status">
+
+                <option value="NEW">
+                    NEW
+                </option>
+
+                <option value="INVESTIGATING">
+                    INVESTIGATING
+                </option>
+
+                <option value="RESOLVED">
+                    RESOLVED
+                </option>
+
+                <option value="FALSE_POSITIVE">
+                    FALSE POSITIVE
+                </option>
+
+            </select>
+
+            <button onclick="updateStatus()">
+                Update Status
+            </button>
+
+        </div>
+
+        <p id="statusMessage"></p>
+
+    </section>
+
+
+
+    <!-- ANALYST NOTES -->
+
+    <section class="panel">
+
+        <h2>Analyst Investigation Notes</h2>
+
+        <textarea
+            id="analystNotes"
+            rows="8"
+            placeholder="Enter defensive investigation notes here..."
+            style="
+                width: 100%;
+                padding: 12px;
+                box-sizing: border-box;
+                background: #1f2937;
+                color: white;
+                border: 1px solid #374151;
+                border-radius: 8px;
+            "
+        ></textarea>
+
+        <br>
+        <br>
+
+        <button
+            onclick="saveNotes()"
+            style="
+                background: #2563eb;
+                color: white;
+                border: none;
+                padding: 10px 18px;
+                border-radius: 6px;
+                cursor: pointer;
+            "
+        >
+            Save Notes
+        </button>
+
+        <p id="notesMessage"></p>
+
+    </section>
+
+
+
+    <!-- SAVED NOTES -->
+
+    <section class="panel">
+
+        <h2>Saved Investigation Notes</h2>
+
+        <div id="savedNotes">
+            <p>Loading notes...</p>
+        </div>
+
+    </section>
+
+
+
+    <!-- RESOLUTION NOTES -->
+
+    <section class="panel">
+
+        <h2>Resolution Notes</h2>
+
+        <p>
+            Record the final defensive investigation result,
+            resolution reason, or false-positive explanation.
+        </p>
+
+        <textarea
+            id="resolutionNotes"
+            rows="6"
+            placeholder="Example: Alert investigated and determined to be a false positive because the traffic matched an approved synthetic scenario..."
+            style="
+                width: 100%;
+                padding: 12px;
+                box-sizing: border-box;
+                background: #1f2937;
+                color: white;
+                border: 1px solid #374151;
+                border-radius: 8px;
+            "
+        ></textarea>
+
+        <br>
+        <br>
+
+        <button
+            onclick="saveResolution()"
+            style="
+                background: #16a34a;
+                color: white;
+                border: none;
+                padding: 10px 18px;
+                border-radius: 6px;
+                cursor: pointer;
+            "
+        >
+            Save Resolution
+        </button>
+
+        <p id="resolutionMessage"></p>
+
+    </section>
+
+
+</main>
+
+
+<script src="investigation.js"></script>
+
+</body>
+
+</html>

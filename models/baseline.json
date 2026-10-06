@@ -1,0 +1,26 @@
+{
+    "packets_per_second": {
+        "mean": 9.700092,
+        "std": 18.673233
+    },
+    "bytes_per_second": {
+        "mean": 5822.634128,
+        "std": 11504.762157
+    },
+    "connections_per_second": {
+        "mean": 0.528509,
+        "std": 1.774997
+    },
+    "failed_connection_ratio": {
+        "mean": 0.206436,
+        "std": 0.312802
+    },
+    "syn_ratio": {
+        "mean": 0.024473,
+        "std": 0.027991
+    },
+    "destination_port_diversity": {
+        "mean": 1.0,
+        "std": 0.0001
+    }
+}
